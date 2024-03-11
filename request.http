@@ -2,7 +2,7 @@ POST http://localhost:3333/auth/register
 Content-Type: application/json
 
 {
-    "email": "oman@gmail.com",
+    "email": "dalmi@gmail.com",
     "password": "123456"
 }
 
@@ -12,6 +12,11 @@ POST http://localhost:3333/auth/login
 Content-Type: application/json
 
 {
-    "email": "oman@gmail.com",
+    "email": "dalmi@gmail.com",
     "password": "123456"
 }
+
+###
+GET http://localhost:3333/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZTE3ZGMyZS0yYTBhLTQwMGQtOTMyMi1mZGQwOWI2MWRiNmMiLCJlbWFpbCI6ImRhbG1pQGdtYWlsLmNvbSIsImlhdCI6MTcxMDEyNTEzMSwiZXhwIjoxNzEwMTI2MDMxfQ.Z2dqyoOwMOlji19kuJTvKBDrEbgYnh77kHuy1vfpm9g
+
