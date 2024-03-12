@@ -17,4 +17,10 @@ export class AuthController {
   login(@Body() dto: AuthDto) {
     return this.authService.login(dto);
   }
+
+  @HttpCode(HttpStatus.OK)
+  @Post('login-next')
+  loginNext(@Body() dto: AuthDto) {
+    return this.authService.loginNext(dto);
+  }
 }

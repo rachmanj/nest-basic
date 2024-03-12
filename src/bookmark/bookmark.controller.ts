@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Patch,
   Post,
   UseGuards,
@@ -18,23 +19,40 @@ export class BookmarkController {
   constructor(private bookmarkService: BookmarkService) {}
 
   @Get()
-  getBookmarks(@GetUser('id') userId: string) {}
+  getBookmarks(@GetUser('id') userId: string) {
+    return this.bookmarkService.getBookmarks(userId);
+  }
 
   @Get(':id')
-  getBookmarkById(@GetUser('id') userId: string) {}
+  getBookmarkById(
+    @GetUser('id') userId: string,
+    @Param('bookmarkId') bookmarkId: string,
+  ) {
+    return this.bookmarkService.getBookmarkById(userId, bookmarkId);
+  }
 
   @Post()
   createBookmark(
     @GetUser('id') userId: string,
     @Body() dto: CreateBookmarkDto,
-  ) {}
+  ) {
+    return this.bookmarkService.createBookmark(userId, dto);
+  }
 
   @Patch(':id')
   editBookmarkById(
     @GetUser('id') userId: string,
+    @Param('id') bookmarkId: string,
     @Body() dto: EditBookmarkDto,
-  ) {}
+  ) {
+    return this.bookmarkService.editBookmarkById(userId, bookmarkId, dto);
+  }
 
   @Delete(':id')
-  deleteBookmarkById(@GetUser('id') userId: string) {}
+  deleteBookmarkById(
+    @GetUser('id') userId: string,
+    @Param('bookmarkId') bookmarkId: string,
+  ) {
+    return this.bookmarkService.deleteBookmarkById(userId, bookmarkId);
+  }
 }
